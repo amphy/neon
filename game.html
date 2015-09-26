@@ -1,0 +1,23 @@
+<html>
+<head>
+	<script src="./libs/pixi.min.js"></script>
+	<link rel="stylesheet" href="./style/game.css" />
+</head>
+
+<body>
+	<canvas id="gameCanvas" width="800" height="600"></canvas>
+	
+	<script>
+		var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
+		document.body.appendChild(renderer.view);
+		var stage = new PIXI.Container();
+		
+		animate();
+		function animate() 
+		{
+			requestAnimationFrame(animate);
+			renderer.render(stage);
+		}
+	</script>
+</body>
+</html>
