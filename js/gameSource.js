@@ -14,7 +14,12 @@ function init(){
 	}
 	
 	//setUpStartScreen(stage);
+	
+	//setUpGameScreen(stage);
+	//setUpCharacterScreen(stage);
+	//setUpStartScreen(stage);
 	setUpGameScreen(stage);
+	//setUpGameScreen(stage);
 }
 
 function setUpStartScreen(stage){
@@ -38,10 +43,18 @@ function setUpCharacterScreen(stage){
 	var alienPartBank = new PIXI.Graphics();
 	
 	alienPartBank.beginFill(0xD3D3D3, 0.25);
-	alienPartBank.drawRoundedRect(0,0,100,100);
+	alienPartBank.drawRoundedRect(600,0,200,600);
 	alienPartBank.endFill();
 	
 	stage.addChild(alienPartBank);
+	
+	var alienPartBlock = new PIXI.Graphics();
+	
+	alienPartBlock.beginFill(0xff0000, 0.1);
+	alienPartBlock.drawRoundedRect(600,0,25,25);
+	alienPartBlock.endFill();
+	
+	stage.addChild(alienPartBlock);
 }
 
 function setUpGameScreen(stage)
