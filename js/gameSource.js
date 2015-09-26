@@ -1,4 +1,5 @@
 var stage = new PIXI.Container();
+var graphics = new PIXI.Graphics();
 
 function init(){
 	var canvas = document.getElementById("gameCanvas");
@@ -10,17 +11,24 @@ function init(){
 	{
 	requestAnimationFrame(animate);
 	renderer.render(stage);
+	TWEEN.update();
 	}
 	
 	//setUpStartScreen(stage);
+	
 	//setUpGameScreen(stage);
+<<<<<<< HEAD
 	setUpCharacterScreen(stage);
 	//setUpStartScreen(stage);
+=======
+	//setUpCharacterScreen(stage);
+	//setUpStartScreen(stage);
+	setUpGameScreen(stage);
+>>>>>>> origin/master
 	//setUpGameScreen(stage);
 }
 
 function setUpStartScreen(stage){
-  var graphics = new PIXI.Graphics();
   graphics.lineStyle(2, 0xFF00FF, 1);
   graphics.beginFill(0xFF00BB, 0.25);
   graphics.drawRoundedRect(150, 450, 300, 100, 15);
@@ -29,11 +37,11 @@ function setUpStartScreen(stage){
   graphics.interactive = true;
   graphics.hitArea = new PIXI.Rectangle(150, 450, 300, 100);
   graphics.on('mousedown', startGame);
-
   stage.addChild(graphics);
 }
 
 function startGame (eventData) {
+  stage.removeChild (graphics)
   setUpCharacterScreen(stage);
 }
 
@@ -86,4 +94,12 @@ function setUpGameScreen(stage)
 	alien.position.x = 50;
 	alien.position.y = 100;
 	stage.addChild(alien);
+	
+	
+	var tween = new TWEEN.Tween(alien).to({x: 100}, 2000)
+	tween.onUpdate = function()
+	{
+		alert("lol");
+	}
+	tween.start()
 }
