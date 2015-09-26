@@ -1,8 +1,9 @@
+var stage = new PIXI.Container();
+
 function init(){
 	var canvas = document.getElementById("gameCanvas");
 	var renderer = PIXI.autoDetectRenderer(800, 600,{transparent: true, view: canvas});
 	document.body.appendChild(renderer.view);
-	var stage = new PIXI.Container();
 	
 	animate();
 	function animate() 
@@ -14,6 +15,8 @@ function init(){
 	//setUpStartScreen(stage);
 	//setUpGameScreen(stage);
 	setUpCharacterScreen(stage);
+	setUpStartScreen(stage);
+	//setUpGameScreen(stage);
 }
 
 function setUpStartScreen(stage){
@@ -23,6 +26,8 @@ function setUpStartScreen(stage){
   graphics.drawRoundedRect(150, 450, 300, 100, 15);
   graphics.endFill();	
 
+  graphics.interactive = true;
+  graphics.hitArea = new PIXI.Rectangle(150, 450, 300, 100);
   graphics.on('mousedown', startGame);
 
   stage.addChild(graphics);
