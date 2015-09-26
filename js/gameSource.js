@@ -21,7 +21,14 @@ function setUpStartScreen(stage){
   graphics.beginFill(0xFF00BB, 0.25);
   graphics.drawRoundedRect(150, 450, 300, 100, 15);
   graphics.endFill();	
+
+  graphics.on('mousedown', startGame);
+
   stage.addChild(graphics);
+}
+
+function startGame (eventData) {
+  setUpCharacterScreen(stage);
 }
 
 function setUpCharacterScreen(stage){
