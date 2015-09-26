@@ -5,9 +5,10 @@ function init(){
 	var stage = new PIXI.Container();
 	
 	animate();
-	function animate() 
-	{
-		requestAnimationFrame(animate);
-		renderer.render(stage);
-	}
+}
+
+function animate() 
+{
+	requestAnimationFrame(animate);
+	renderer.render(stage);
 }
