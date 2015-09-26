@@ -10,10 +10,11 @@ function init(){
 	{
 	requestAnimationFrame(animate);
 	renderer.render(stage);
+	TWEEN.update();
 	}
 	
-	setUpStartScreen(stage);
-	//setUpGameScreen(stage);
+	//setUpStartScreen(stage);
+	setUpGameScreen(stage);
 }
 
 function setUpStartScreen(stage){
@@ -26,7 +27,6 @@ function setUpStartScreen(stage){
   graphics.interactive = true;
   graphics.hitArea = new PIXI.Rectangle(150, 450, 300, 100);
   graphics.on('mousedown', startGame);
-
   stage.addChild(graphics);
 }
 
@@ -51,4 +51,12 @@ function setUpGameScreen(stage)
 	alien.position.x = 50;
 	alien.position.y = 100;
 	stage.addChild(alien);
+	
+	
+	var tween = new TWEEN.Tween(alien).to({x: 100}, 2000)
+	tween.onUpdate = function()
+	{
+		alert("lol");
+	}
+	tween.start()
 }
