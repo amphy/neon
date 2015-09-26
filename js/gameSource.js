@@ -11,13 +11,14 @@ function init(){
 	renderer.render(stage);
 	}
 	
-	setUpStartScreen();
+	setUpStartScreen(stage);
 }
 
 function setUpStartScreen(){
 	
 }
 
-function setUpCharacterScreen(){
-	
+function setUpCharacterScreen(stage){
+	var alienPartBank = new PIXI.Rectangle;
+	stage.addChild(alienPartBank);
 }
