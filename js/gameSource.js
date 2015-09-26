@@ -1,6 +1,6 @@
 function init(){
 	var canvas = document.getElementById("gameCanvas");
-	var renderer = PIXI.autoDetectRenderer(1900, 900,{transparent: true, view: canvas});
+	var renderer = PIXI.autoDetectRenderer(800, 600,{transparent: true, view: canvas});
 	document.body.appendChild(renderer.view);
 	var stage = new PIXI.Container();
 	
@@ -32,7 +32,12 @@ function startGame (eventData) {
 }
 
 function setUpCharacterScreen(stage){
-	var alienPartBank = new PIXI.Rectangle;
+	var alienPartBank = new PIXI.Graphics();
+	
+	alienPartBank.beginFill(0xD3D3D3, 0.25);
+	alienPartBank.drawRoundedRect(0,0,100,100);
+	alienPartBank.endFill();
+	
 	stage.addChild(alienPartBank);
 }
 
