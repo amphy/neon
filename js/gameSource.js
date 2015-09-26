@@ -1,4 +1,5 @@
 var stage = new PIXI.Container();
+var graphics = new PIXI.Graphics();
 
 function init(){
 	var canvas = document.getElementById("gameCanvas");
@@ -17,7 +18,6 @@ function init(){
 }
 
 function setUpStartScreen(stage){
-  var graphics = new PIXI.Graphics();
   graphics.lineStyle(2, 0xFF00FF, 1);
   graphics.beginFill(0xFF00BB, 0.25);
   graphics.drawRoundedRect(150, 450, 300, 100, 15);
@@ -31,6 +31,7 @@ function setUpStartScreen(stage){
 }
 
 function startGame (eventData) {
+  stage.removeChild (graphics)
   setUpCharacterScreen(stage);
 }
 
