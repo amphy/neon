@@ -10,4 +10,14 @@ function init(){
 	requestAnimationFrame(animate);
 	renderer.render(stage);
 	}
+	
+	setUpStartScreen();
+}
+
+function setUpStartScreen(){
+	
+}
+
+function setUpCharacterScreen(){
+	
 }
