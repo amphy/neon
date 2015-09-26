@@ -15,7 +15,7 @@ function init(){
 	//setUpStartScreen(stage);
 	//setUpGameScreen(stage);
 	setUpCharacterScreen(stage);
-	setUpStartScreen(stage);
+	//setUpStartScreen(stage);
 	//setUpGameScreen(stage);
 }
 
@@ -38,21 +38,45 @@ function startGame (eventData) {
 }
 
 function setUpCharacterScreen(stage){
-	var alienPartBank = new PIXI.Graphics();
 	
+	var characterScreenContainer = new PIXI.Container();
+	stage.addChild(characterScreenContainer);
+	
+	var alienPartBank = new PIXI.Graphics();
 	alienPartBank.beginFill(0xD3D3D3, 0.25);
 	alienPartBank.drawRoundedRect(600,0,200,600);
 	alienPartBank.endFill();
+	characterScreenContainer.addChild(alienPartBank);
 	
-	stage.addChild(alienPartBank);
+	var submitButton = new PIXI.Graphics();
+	submitButton.beginFill(0xff0000, 0.25);
+	submitButton.drawRoundedRect(300,500,200,200);
+	submitButton.endFill();
+	submitButton.interactive = true;
+	submitButton.hitArea = new PIXI.Rectangle(300,500,200,200);
+	submitButton.on('mousedown', startGameScreen);
+	characterScreenContainer.addChild(submitButton);
 	
-	var alienPartBlock = new PIXI.Graphics();
-	
-	alienPartBlock.beginFill(0xff0000, 0.1);
-	alienPartBlock.drawRoundedRect(600,0,25,25);
-	alienPartBlock.endFill();
-	
-	stage.addChild(alienPartBlock);
+	var alienPartBlock;
+	var x = 25;
+	for (var i = 0; i < 8;i++){
+		alienPartBlock = new PIXI.Graphics();
+		
+		alienPartBlock.beginFill(0xff0000, 0.25);
+		if (i%2 == 0){
+			alienPartBlock.drawRoundedRect(625,x,50,50);
+		}else{
+			alienPartBlock.drawRoundedRect(700,x,50,50);
+			x = x + 100;
+		}
+		alienPartBlock.endFill();
+		
+		characterScreenContainer.addChild(alienPartBlock);
+	}
+}
+
+function startGameScreen(eventData){
+	setUpGameScreen(stage);
 }
 
 function setUpGameScreen(stage)
