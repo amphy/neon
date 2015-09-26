@@ -11,7 +11,8 @@ function init(){
 	renderer.render(stage);
 	}
 	
-	setUpStartScreen(stage);
+	//setUpStartScreen(stage);
+	setUpGameScreen(stage);
 }
 
 function setUpStartScreen(){
@@ -21,4 +22,13 @@ function setUpStartScreen(){
 function setUpCharacterScreen(stage){
 	var alienPartBank = new PIXI.Rectangle;
 	stage.addChild(alienPartBank);
+}
+
+function setUpGameScreen(stage)
+{
+	var texture = PIXI.Texture.fromImage('./assets/alien.png');
+	var alien = new PIXI.Sprite(texture);
+	alien.position.x = 50;
+	alien.position.y = 100;
+	stage.addChild(alien);
 }
