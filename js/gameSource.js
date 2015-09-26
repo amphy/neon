@@ -11,13 +11,8 @@ function init(){
 	renderer.render(stage);
 	}
 	
-<<<<<<< HEAD
 	//setUpStartScreen(stage);
 	setUpGameScreen(stage);
-=======
-	setUpStartScreen(stage);
-
->>>>>>> 7469fa866852562a41f073d747eea627f744fb47
 }
 
 function setUpStartScreen(stage){
@@ -33,7 +28,6 @@ function setUpCharacterScreen(stage){
 	var alienPartBank = new PIXI.Rectangle;
 	stage.addChild(alienPartBank);
 }
-<<<<<<< HEAD
 
 function setUpGameScreen(stage)
 {
@@ -43,5 +37,3 @@ function setUpGameScreen(stage)
 	alien.position.y = 100;
 	stage.addChild(alien);
 }
-=======
->>>>>>> 7469fa866852562a41f073d747eea627f744fb47
